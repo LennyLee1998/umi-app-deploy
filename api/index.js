@@ -25,7 +25,7 @@ app.get('/article/list', (req, res) => {
 });
 const config = require('./config.json');
 // 连接数据库
-mongoose.connect(config.connectionString);
+mongoose.connect(process.env.connectionString);
 
 // article
 // creator
