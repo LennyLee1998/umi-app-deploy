@@ -23,9 +23,11 @@ app.get('/article/list', (req, res) => {
     message: '获取数据成功',
   });
 });
-const config = require('./config.json');
+// const config = require('./config.json');
 // 连接数据库
-mongoose.connect(config.connectionString);
+mongoose.connect(
+  'mongodb+srv://lennylee2484:lennylee123@notesapp.jcgfiwe.mongodb.net/bigbang?retryWrites=true&w=majority&appName=notesapp/bigbang',
+);
 
 // article
 // creator
