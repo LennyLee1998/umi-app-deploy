@@ -1,0 +1,45 @@
+{
+  "private": true,
+  "author": "Lenny <ly2484579947@gmail.com>",
+  "scripts": {
+    "build": "max build",
+    "dev": "max dev",
+    "format": "prettier --cache --write .",
+    "postinstall": "max setup",
+    "oss:cli": "ossutil cp -rf --meta Cache-Control:max-age=31536000 dist oss://lennylee-umi && ossutil cp -rf --meta Cache-Control:no-cache dist/index.html oss://lennylee-umi",
+    "oss:prune": "node scripts/deleteOSS.mjs",
+    "oss:rclone": "rclone copy  dist alioss:/lennylee-umi --progress && rclone copy dist/index.html alioss:/lennylee-umi --progress",
+    "oss:script": "node scripts/uploadOSS.mjs",
+    "prepare": "husky",
+    "setup": "max setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "@ant-design/pro-components": "^2.4.4",
+    "@umijs/max": "^4.3.11",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-react": "^1.0.6",
+    "ahooks": "^3.8.1",
+    "ali-oss": "^6.21.0",
+    "antd": "^5.4.0",
+    "axios": "^1.7.4",
+    "mockjs": "^1.1.0",
+    "nanoid": "^3.3.7",
+    "serve": "^14.2.3",
+    "spark-md5": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/lodash.foreach": "^4.5.9",
+    "@types/mockjs": "^1.0.10",
+    "@types/react": "^18.0.33",
+    "@types/react-dom": "^18.0.11",
+    "@types/spark-md5": "^3.0.4",
+    "husky": "^9",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.7",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "prettier-plugin-packagejson": "^2.4.3",
+    "typescript": "^5.0.3"
+  }
+}
