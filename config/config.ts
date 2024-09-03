@@ -40,8 +40,8 @@ export default defineConfig({
     },
   },
   hash: true,
-  publicPath:
-    process.env.NODE_ENV === 'production'
-      ? 'https://lennylee-umi.oss-cn-shanghai.aliyuncs.com/'
-      : '/',
+  // publicPath:
+  //   process.env.NODE_ENV === 'production'
+  //     ? 'https://lennylee-umi.oss-cn-shanghai.aliyuncs.com/'
+  //     : '/',
 });
