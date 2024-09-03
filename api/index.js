@@ -25,7 +25,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: false }));
 // });
 const config = require('./config.json');
 // 连接数据库
-mongoose.connect(process.env.connectionString);
+mongoose.connect(process.env.connectionString ?? config.connectionString);
 
 // article
 // creator
