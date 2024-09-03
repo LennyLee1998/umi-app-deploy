@@ -17,12 +17,12 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: false }));
 
 // 接口测试
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-app.get('/data', (req, res) => {
-  res.send('data');
-});
+// app.get('/', (req, res) => {
+//   res.send('Hello World!');
+// // });
+// app.get('/data', (req, res) => {
+//   res.send('data');
+// });
 const config = require('./config.json');
 // 连接数据库
 mongoose.connect(process.env.connectionString ?? config.connectionString);
