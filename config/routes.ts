@@ -1,11 +1,11 @@
 export default [
-  // {
-  //   name: '登录',
-  //   path: '/login',
-  //   component: '@/pages/Login',
-  //   icon: 'HomeOutlined',
-  //   layout: false,
-  // },
+  {
+    name: '登录',
+    path: '/login',
+    component: '@/pages/Login',
+    icon: 'HomeOutlined',
+    layout: false,
+  },
   {
     path: '/',
     redirect: '/home',
