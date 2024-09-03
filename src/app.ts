@@ -59,7 +59,7 @@ export const request: RequestConfig = {
   baseURL:
     process.env.NODE_ENV === 'production'
       ? 'https://umi-app-deploy.vercel.app'
-      : 'http://localhost:8989',
+      : 'http://localhost:3000',
   // other axios options you want
   errorConfig: {
     errorHandler() {},

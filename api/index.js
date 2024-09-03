@@ -1,11 +1,11 @@
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
-// const port = process.env.PORT || 3000;
 // 创建应用
 // app 和 server 都是使用 Express 框架创建的 HTTP 服务器实例
 // app 是主要的 Express 应用程序实例，它处理所有的 API 请求和业务逻辑。它配置了中间件（如 CORS 和解析请求体的中间件），并定义了 API 路由（如 /article/list）
 const app = express();
+require('dotenv').config();
 
 // 允许跨域
 app.use(
@@ -33,6 +33,8 @@ const Article = require('./model/article.model');
 // get-articles
 app.get('/get-articles', async (req, res) => {
   try {
+    console.log(process.env.ACCESS_TOKEN_SECRET);
+
     const articles = await Article.find().sort({ createdAt: -1 });
     return res.json({
       code: 200,
@@ -225,7 +227,6 @@ app.delete('/delete-banner/:id', async (req, res) => {
     message: 'Banner deleted Successfully',
   });
 });
-
 // goods
 const Goods = require('./model/goods.model');
 app.post('/goods/many-trans', async (req, res) => {
