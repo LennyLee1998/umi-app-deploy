@@ -1,6 +1,7 @@
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
+// const port = process.env.PORT || 3000;
 // 创建应用
 // app 和 server 都是使用 Express 框架创建的 HTTP 服务器实例
 // app 是主要的 Express 应用程序实例，它处理所有的 API 请求和业务逻辑。它配置了中间件（如 CORS 和解析请求体的中间件），并定义了 API 路由（如 /article/list）
@@ -16,16 +17,15 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: false }));
 
 // 接口测试
-app.get('/article/list', (req, res) => {
-  res.json({
-    code: 200,
-    data: 'Hello world',
-    message: '获取数据成功',
-  });
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+app.get('/data', (req, res) => {
+  res.send('data');
 });
 const config = require('./config.json');
 // 连接数据库
-mongoose.connect(config.connectionString);
+mongoose.connect(process.env.connectionString ?? config.connectionString);
 
 // article
 // creator
@@ -419,8 +419,8 @@ app.get('/get-all-roles', async (req, res) => {
 });
 
 // 静态资源服务器
-app.listen(8989, () => {
-  console.log('server is running');
-});
+// app.listen(3000, () => {
+//   console.log('server is running');
+// });
 
 module.exports = app;
