@@ -35,12 +35,12 @@ export const layout = (initialState: IInitialState) => {
       // console.log('aaa');
       // console.log(initialState);
       const { location } = history;
-      if (
-        !initialState.initialState.isLogin &&
-        location.pathname !== '/login'
-      ) {
-        history.push('/login');
-      }
+      // if (
+      //   !initialState.initialState.isLogin &&
+      //   location.pathname !== '/login'
+      // ) {
+      //   history.push('/home');
+      // }
     },
     logo: 'https://telegraph-image-2s1.pages.dev/file/877db020dd515fe265932.png',
     menu: {
@@ -58,8 +58,8 @@ export const request: RequestConfig = {
   timeout: 100000,
   baseURL:
     process.env.NODE_ENV === 'production'
-      ? 'https://umi-app-deploy.vercel.app'
-      : 'http://localhost:3000',
+      ? 'https://umi-app-deploy.vercel.app/api'
+      : 'http://localhost:3000/api',
   // other axios options you want
   errorConfig: {
     errorHandler() {},

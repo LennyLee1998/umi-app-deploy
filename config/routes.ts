@@ -1,11 +1,11 @@
 export default [
-  {
-    name: '登录',
-    path: '/login',
-    component: '@/pages/Login',
-    icon: 'HomeOutlined',
-    layout: false,
-  },
+  // {
+  //   name: '登录',
+  //   path: '/login',
+  //   component: '@/pages/Login',
+  //   icon: 'HomeOutlined',
+  //   layout: false,
+  // },
   {
     path: '/',
     redirect: '/home',
@@ -34,7 +34,7 @@ export default [
     name: ' 创作者中心',
     path: '/creator',
     icon: 'CloudSyncOutlined',
-    access: 'isRoot',
+    // access: 'isRoot',
     routes: [
       {
         path: '/creator/content',
@@ -57,7 +57,7 @@ export default [
     name: '分类管理',
     path: '/category',
     icon: 'SplitCellsOutlined',
-    access: 'isAdmin',
+    // access: 'isAdmin',
     routes: [
       {
         path: '/category/catelist',
@@ -68,7 +68,7 @@ export default [
         path: '/category/catepub',
         component: '@/pages/Category/CatePub',
         name: '分类发布',
-        access: 'isRoot',
+        // access: 'isRoot',
       },
     ],
   },
@@ -77,7 +77,7 @@ export default [
     path: '/banner',
     // component: '@/layouts/index',
     icon: 'FileImageOutlined',
-    access: 'isAdmin',
+    // access: 'isAdmin',
     routes: [
       {
         path: '/banner/pub',
@@ -104,7 +104,7 @@ export default [
     name: '商品管理',
     path: '/goods',
     icon: 'ProductOutlined',
-    access: 'isAdmin',
+    // access: 'isAdmin',
     routes: [
       {
         path: '/goods/pub',
@@ -128,7 +128,7 @@ export default [
     name: '上传文件',
     component: '@/pages/Upload',
     icon: 'CloudUploadOutlined',
-    access: 'isRoot',
+    // access: 'isRoot',
   },
   {
     name: ' 消息列表',
@@ -153,13 +153,13 @@ export default [
     component: '@/pages/Area/index',
     name: '配送范围',
     icon: 'HeatMapOutlined',
-    access: 'isRoot',
+    // access: 'isRoot',
   },
   {
     name: ' 系统设置',
     path: '/system',
     icon: 'SettingOutlined',
-    access: 'isRoot',
+    // access: 'isRoot',
     routes: [
       {
         path: '/system/role',

@@ -14,10 +14,10 @@ export default (initialState: IInitialState) => {
   // );
   return {
     // isRoot: false,
-    isRoot: role?.includes('root'),
+    // isRoot: role?.includes('root'),
     // isAdmin: false,
-    isAdmin: role?.includes('root') || role?.includes('admin'),
+    // isAdmin: role?.includes('root') || role?.includes('admin'),
     // isStaff: true,
-    isStaff: true,
+    // isStaff: true,
   };
 };

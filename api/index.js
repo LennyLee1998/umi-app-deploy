@@ -31,7 +31,7 @@ mongoose.connect(process.env.connectionString ?? config.connectionString);
 // creator
 const Article = require('./model/article.model');
 // get-articles
-app.get('/get-articles', async (req, res) => {
+app.get('/api/get-articles', async (req, res) => {
   try {
     console.log(process.env.ACCESS_TOKEN_SECRET);
 
@@ -49,7 +49,7 @@ app.get('/get-articles', async (req, res) => {
   }
 });
 // delete-article
-app.delete('/delete-article/:articleId', async (req, res) => {
+app.delete('/api/delete-article/:articleId', async (req, res) => {
   const { articleId } = req.params;
   try {
     const article = await Article.find({ _id: articleId });
@@ -71,7 +71,7 @@ app.delete('/delete-article/:articleId', async (req, res) => {
   }
 });
 // add-article
-app.post('/add-article', async (req, res) => {
+app.post('/api/add-article', async (req, res) => {
   // console.log(req.body);
   const { title, articleData, content, isFavorite } = req.body;
   // if ()
@@ -93,7 +93,7 @@ app.post('/add-article', async (req, res) => {
 
 // Category
 const Category = require('./model/catogory.model');
-app.post('/classes/category', async (req, res) => {
+app.post('/api/classes/category', async (req, res) => {
   const { categoryName } = req.body;
   try {
     const isExisted = await Category.find({ categoryName });
@@ -115,7 +115,7 @@ app.post('/classes/category', async (req, res) => {
     });
   }
 });
-app.get('/get-all-categories', async (req, res) => {
+app.get('/api/get-all-categories', async (req, res) => {
   try {
     const allCategories = await Category.find();
     return res.json({
@@ -133,7 +133,7 @@ app.get('/get-all-categories', async (req, res) => {
 
 // banner
 const Banner = require('./model/banner.model');
-app.post('/upload-banner', async (req, res) => {
+app.post('/api/upload-banner', async (req, res) => {
   const { bannerName, bannerLink, imgUrl } = req.body;
   if (!bannerName) {
     return res.status(400).json({
@@ -169,7 +169,7 @@ app.post('/upload-banner', async (req, res) => {
     });
   }
 });
-app.get('/get-all-banners', async (req, res) => {
+app.get('/api/get-all-banners', async (req, res) => {
   try {
     const banners = await Banner.find().sort({ createdAt: -1 });
     return res.json({
@@ -184,7 +184,7 @@ app.get('/get-all-banners', async (req, res) => {
     });
   }
 });
-app.put('/edit-banner/:id', async (req, res) => {
+app.put('/api/edit-banner/:id', async (req, res) => {
   const { id } = req.params;
   const body = req.body;
   try {
@@ -212,7 +212,7 @@ app.put('/edit-banner/:id', async (req, res) => {
     });
   }
 });
-app.delete('/delete-banner/:id', async (req, res) => {
+app.delete('/api/delete-banner/:id', async (req, res) => {
   const { id } = req.params;
   const banner = await Banner.findById({ _id: id });
   if (!banner) {
@@ -229,7 +229,7 @@ app.delete('/delete-banner/:id', async (req, res) => {
 });
 // goods
 const Goods = require('./model/goods.model');
-app.post('/goods/many-trans', async (req, res) => {
+app.post('/api/goods/many-trans', async (req, res) => {
   const { goodsData } = req.body;
   // console.log(goodsData);
   try {
@@ -251,7 +251,7 @@ app.post('/goods/many-trans', async (req, res) => {
 
 // 图片 => oss
 const uploadAndDownloadFile = require('./utils/uploadOss');
-app.post('/upload-goods-img', async (req, res) => {
+app.post('/api/upload-goods-img', async (req, res) => {
   const { nanoid } = await import('nanoid');
   const { base64Data } = req.body;
   const uuid = nanoid();
@@ -295,7 +295,7 @@ const authenticateToken = require('./utils/authenticateToken');
 
 // login会签发token
 const User = require('./model/user.model');
-app.post('/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
   const { username, password, remember } = req.body;
   if (!username)
     return res
@@ -333,7 +333,7 @@ app.post('/login', async (req, res) => {
   }
 });
 // 大文件上传
-app.post('/file-upload', async (req, res) => {
+app.post('/api/file-upload', async (req, res) => {
   req.body = 'ok';
 });
 
@@ -341,7 +341,7 @@ app.post('/file-upload', async (req, res) => {
 const Role = require('./model/role.model');
 
 // user
-app.post('/create-user', async (req, res) => {
+app.post('/api/create-user', async (req, res) => {
   const { username, password, email, role } = req.body;
   // console.log(role);
   if (!username) {
@@ -386,7 +386,7 @@ app.post('/create-user', async (req, res) => {
 
 // role
 // 增加角色
-app.post('/add-role', async (req, res) => {
+app.post('/api/add-role', async (req, res) => {
   const { name, description } = req.body.role;
   // 表单验证
   if (!name) {
@@ -410,7 +410,7 @@ app.post('/add-role', async (req, res) => {
   });
 });
 // 获取角色
-app.get('/get-all-roles', async (req, res) => {
+app.get('/api/get-all-roles', async (req, res) => {
   const roles = await Role.find();
   return res.json({
     code: 200,
