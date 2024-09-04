@@ -18,6 +18,7 @@ const HomePage: React.FC = () => {
     sessionStorage.clear();
     // navigate('/login');
   };
+
   return (
     <PageContainer ghost>
       <div className={styles.container}>

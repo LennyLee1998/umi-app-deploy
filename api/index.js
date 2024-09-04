@@ -420,8 +420,8 @@ app.get('/api/get-all-roles', async (req, res) => {
 });
 
 // 静态资源服务器
-// app.listen(3000, () => {
-//   console.log('server is running');
-// });
+app.listen(3000, () => {
+  console.log('server is running');
+});
 
 module.exports = app;

@@ -56,10 +56,7 @@ interface ResponseData {
 }
 export const request: RequestConfig = {
   timeout: 100000,
-  baseURL:
-    process.env.NODE_ENV === 'production'
-      ? 'https://umi-app-deploy.vercel.app/api'
-      : 'http://localhost:3000/api',
+  baseURL: process.env.BASE_URL,
   // other axios options you want
   errorConfig: {
     errorHandler() {},
